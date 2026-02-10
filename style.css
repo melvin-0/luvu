@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background: radial-gradient(circle at top, #fde2e4, #fff);
+    color: #3a1f2d;
+    text-align: center;
+    overflow-x: hidden;
+    transition: background 1s, color 1s;
+}
+body.night { background: radial-gradient(circle at top, #1a0f14, #000); color: #f5d7e3; }
+body.night .card { background: rgba(255, 255, 255, 0.08); }
+
+#cinematic, #eyesOverlay {
+    position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 2s ease; z-index: 2000; background: black;
+}
+#cinematic.show, #eyesOverlay.show { opacity: 1; pointer-events: auto; }
+#cinematic h1 { color: #f5d7e3; font-family: 'Great Vibes', cursive; font-size: 4rem; }
+#eyesOverlay { flex-direction: column; z-index: 3000; }
+#eyesOverlay p { color: white; font-size: 1.4rem; margin-bottom: 30px; }
+#eyesOverlay img { max-width: 80%; max-height: 70vh; border-radius: 25px; box-shadow: 0 0 60px pink; }
+
+section { padding: 120px 20px; max-width: 1100px; margin: auto; }
+h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; }
+h2 { font-size: 2.5rem; margin-bottom: 30px; }
+p { font-size: 1.25rem; line-height: 2; }
+
+.fade { opacity: 0; transform: translateY(40px); transition: all 1.4s ease; }
+.fade.show { opacity: 1; transform: translateY(0); }
+
+.heart { position: fixed; bottom: -20px; font-size: 22px; animation: floatUp 7s linear infinite; opacity: 0.5; pointer-events: none; }
+@keyframes floatUp { from { transform: translateY(0); } to { transform: translateY(-120vh); } }
+
+video { width: 100%; max-width: 760px; border-radius: 22px; box-shadow: 0 25px 50px rgba(0,0,0,.25); }
+.slideshow { max-width: 600px; margin: 60px auto 0; position: relative; height: 400px; }
+.slideshow img { width: 100%; border-radius: 20px; display: none; position: absolute; top: 0; left: 0; }
+.slideshow img.active { display: block; }
+
+.reasons { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+.card { background: white; padding: 35px; border-radius: 22px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+button { background: #c9184a; color: white; border: none; padding: 18px 38px; border-radius: 40px; cursor: pointer; font-size: 1rem; }
+.music-btn, .night-btn { position: fixed; right: 20px; z-index: 1000; padding: 12px 22px; }
+.music-btn { top: 20px; }
+.night-btn { top: 70px; }
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 1.8rem; }
+    section { padding: 80px 15px; }
+}
